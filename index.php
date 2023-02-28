@@ -25,7 +25,7 @@ require 'functions.php';
 				<i class="fa-solid fa-house"></i>
 				<span class="nav-item">Beranda</span></a>
 			</li>
-			<li><a href="masterdata.php">
+			<li><a href="add_employee.php">
 				<i class="fa-solid fa-table"></i>
 				<span class="nav-item">Masterdata</span></a>
 			</li>
