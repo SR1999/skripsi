@@ -30,7 +30,7 @@ $lokasi = query("SELECT * FROM lokasi");
 
 <!-- INPUT FORM -->
 
-<form>
+<form action="" method="post">
 	<a href="index.php">back</a>
 	<ul>
 		<li>
@@ -40,7 +40,8 @@ $lokasi = query("SELECT * FROM lokasi");
 		<li>
 			<label for="jabatan">Jabatan: </label>
 			<select id="jabatan" name="jabatan">
-				<?php foreach ($jabatan as $jb) : ?>	
+				<?php foreach ($jabatan as $jb) : ?>
+
 				<option value="<?php echo $jb["id_jabatan"]; ?>"><?php echo $jb["nama_jabatan"]; ?></option>	
 				<?php endforeach; ?>
 			</select>

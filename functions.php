@@ -18,9 +18,9 @@ function tambah($data){
 	/**
 	 * Collect Data
 	 */
-	$jabatan = $data["id_jabatan"];
-	$lokasi = $data["id_lokasi"];
-	$nama_karyawan = htmlspecialchars($data["nama_karyawan"]);
+	$jabatan = $data["jabatan"];
+	$lokasi = $data["lokasi"];
+	$nama_karyawan = htmlspecialchars($data["nama"]);
 	$nip = htmlspecialchars($data["nip"]);
 
 	try {
