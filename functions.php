@@ -66,6 +66,38 @@ function tambah_lokasi($data){
 	}
 }
 
+function hapus($id){
+	global $conn;
+	try {
+	$query = "DELETE FROM karyawan WHERE id_karyawan=$id";
+	mysqli_query($conn, $query);
+	return mysqli_affected_rows($conn);
+		
+	} catch (Exception $e) {
+		print_r($e -> getMessage());die;
+	}
+}
 
+function edit($data){
+	global $conn;
+	$id = $data["id"];
+	$jabatan = $data["jabatan"];
+	$lokasi = $data["lokasi"];
+	$nama = htmlspecialchars($data["nama"]);
+	$nip = htmlspecialchars($data["nip"]);
+	try {
+		$query = "UPDATE karyawan SET
+		id_jabatan = $jabatan,
+		id_lokasi = $lokasi,
+		nama_karyawan = '$nama',
+		nip = '$nip'
+		WHERE id_karyawan = $id";
+		mysqli_query($conn, $query);
+		return mysqli_affected_rows($conn);
+		
+	} catch (Exception $e) {
+		print_r($e->getMessage());die;
+	}
+}
 
  ?>

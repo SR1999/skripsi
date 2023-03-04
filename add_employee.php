@@ -10,7 +10,7 @@ if(isset($_POST["submit"])){
 	// var_dump($_POST);
 }
 
-$table = query("SELECT nama_karyawan, nama_jabatan, kode AS Alamat, daerah
+$table = query("SELECT id_karyawan, nama_karyawan, nama_jabatan, kode AS Alamat, daerah
 FROM karyawan
 JOIN jabatan USING(id_jabatan)
 JOIN lokasi USING(id_lokasi);");
@@ -33,10 +33,12 @@ $lokasi = query("SELECT * FROM lokasi");
 <form action="" method="post">
 	<a href="index.php">back</a>
 	<ul>
+		<!-- nama -->
 		<li>
 			<label for="nama">Nama Pegawai: </label>
 			<input type="text" name="nama" id="nama" required>
 		</li>
+		<!-- jabatan -->
 		<li>
 			<label for="jabatan">Jabatan: </label>
 			<select id="jabatan" name="jabatan">
@@ -45,8 +47,8 @@ $lokasi = query("SELECT * FROM lokasi");
 				<option value="<?php echo $jb["id_jabatan"]; ?>"><?php echo $jb["nama_jabatan"]; ?></option>	
 				<?php endforeach; ?>
 			</select>
-
 		</li>
+		<!-- lokasi -->
 		<li>
 			<label for="lokasi">Lokasi: </label>
 			<select id="lokasi" name="lokasi">
@@ -55,12 +57,14 @@ $lokasi = query("SELECT * FROM lokasi");
 				<?php endforeach; ?>
 			</select>
 		</li>
+		<!-- nip -->
 		<li>
 			<label for="nip">NIP: </label>
 			<input type="text" name="nip" id="nip">
 		</li>
+
 		<button type="submit" name="submit">Kirimkan</button>
-	</ul>
+		</ul>
 
 <!-- TABLE -->
 
@@ -78,7 +82,8 @@ $lokasi = query("SELECT * FROM lokasi");
 		<tr>
 			<td><?php echo $i; ?></td>
 			<td>
-				<a href="#">Edit</a> | <a href="#">Hapus</a>
+				<a href="edit.php?id_karyawan=<?php echo $row["id_karyawan"]; ?>">Edit</a> | 
+				<a href="delete.php?id_karyawan=<?php echo $row["id_karyawan"]; ?>" onclick = "return confirm('yakin?')">Hapus</a>
 			</td>
 			<td><?php echo $row["nama_karyawan"]; ?></td>
 			<td><?php echo $row["nama_jabatan"]; ?></td>
