@@ -10,7 +10,7 @@ if(isset($_POST["submit"])){
 	// var_dump($_POST);
 }
 
-$table = query("SELECT id_karyawan, nama_karyawan, nama_jabatan, kode AS Alamat, daerah
+$table = query("SELECT id_karyawan, nama_karyawan, nip, nama_jabatan, kode AS Alamat, daerah
 FROM karyawan
 JOIN jabatan USING(id_jabatan)
 JOIN lokasi USING(id_lokasi);");
@@ -31,7 +31,7 @@ $lokasi = query("SELECT * FROM lokasi");
 <!-- INPUT FORM -->
 
 <form action="" method="post">
-	<a href="index.php">back</a>
+	<a href="index.php">back</a> | <a href="add_company_location.php">add location</a> | <a href="add_job.php">add job</a>
 	<ul>
 		<!-- nama -->
 		<li>
@@ -74,6 +74,7 @@ $lokasi = query("SELECT * FROM lokasi");
 			<th>Aksi</th>
 			<th>Nama</th>
 			<th>Jabatan</th>
+			<th>NIP</th>
 			<th>Alamat</th>
 			<th>Daerah</th>
 		</tr>
@@ -82,17 +83,20 @@ $lokasi = query("SELECT * FROM lokasi");
 		<tr>
 			<td><?php echo $i; ?></td>
 			<td>
-				<a href="edit.php?id_karyawan=<?php echo $row["id_karyawan"]; ?>">Edit</a> | 
-				<a href="delete.php?id_karyawan=<?php echo $row["id_karyawan"]; ?>" onclick = "return confirm('yakin?')">Hapus</a>
+				<a href="edit_employee.php?id_karyawan=<?php echo $row["id_karyawan"]; ?>">Edit</a> | 
+				<a href="delete_employee.php?id_karyawan=<?php echo $row["id_karyawan"]; ?>" onclick = "return confirm('yakin?')">Hapus</a>
 			</td>
 			<td><?php echo $row["nama_karyawan"]; ?></td>
 			<td><?php echo $row["nama_jabatan"]; ?></td>
+			<td><?php echo $row["nip"]; ?></td>
 			<td><?php echo $row["Alamat"]; ?></td>
 			<td><?php echo $row["daerah"]; ?></td>
 		</tr>
 <?php $i++; ?>
 <?php endforeach; ?>
 	</table>
+
+	
 </form>
 </body>
 </html>

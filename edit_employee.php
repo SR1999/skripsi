@@ -11,14 +11,14 @@ if(isset($_POST["submit"])) {
 		echo "
 			<script>
 				alert('data berhasil diubah!');
-				document.location.href = 'index.php';
+				document.location.href='add_employee.php';
 			</script>
 		";
 	}else{
 		echo "
 			<script>
 				alert('data gagal diubah!');
-				document.location.href = 'index.php';
+				
 			</script>
 		";
 	}
@@ -34,6 +34,7 @@ if(isset($_POST["submit"])) {
 </head>
 <body>
 	<h1>Nama Karyawan</h1>
+	<a href="add_employee.php">back</a>
 	<form action="" method="post">
 		<ul>
 		<!-- id -->
