@@ -1,5 +1,11 @@
 <?php 
+session_start();
 require 'functions.php';
+
+if(!isset($_SESSION["login"])){
+	header("Location: index.php");
+	exit;
+}
 
 $id = $_GET["id_karyawan"];
 $karyawan = query("SELECT * FROM karyawan WHERE id_karyawan = $id")[0];

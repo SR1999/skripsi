@@ -1,10 +1,14 @@
 <?php 
+session_start();
 require 'functions.php';
 
+if(!isset($_SESSION["login"])){
+	header("Location: login.php");
+	exit;
+}
 
 
  ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +41,7 @@ require 'functions.php';
 				<i class="fa-solid fa-gear"></i>
 				<span class="nav-item">Pengaturan</span></a>
 			</li>
-			<li><a href="#" class="logout">
+			<li><a href="logout.php" class="logout">
 				<i class="fa-solid fa-right-from-bracket"></i>
 				<span class="nav-item">Logout</span></a>
 			</li>
